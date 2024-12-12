@@ -4,6 +4,8 @@ import 'package:city_weather/data/datasources/open_weather_data_source.dart';
 import 'package:city_weather/data/datasources/weather_data_source.dart';
 import 'package:city_weather/data/repositories/weather_repository_impl.dart';
 import 'package:city_weather/domain/repositories/weather_repository.dart';
+import 'package:city_weather/domain/usecases/get_current_weather_usecase.dart';
+import 'package:city_weather/domain/usecases/get_weather_forecast_usecase.dart';
 import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
@@ -30,5 +32,14 @@ void setupServiceLocator() {
     () => WeatherRepositoryImpl(
       dataSource: getIt(),
     ),
+  );
+
+  // Use cases
+  getIt.registerLazySingleton(
+    () => GetCurrentWeatherUseCase(getIt()),
+  );
+  
+  getIt.registerLazySingleton(
+    () => GetWeatherForecastUseCase(getIt()),
   );
 }
