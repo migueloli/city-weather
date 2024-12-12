@@ -14,28 +14,30 @@ class OpenWeatherDataSource implements WeatherDataSource {
         _apiKey = apiKey;
 
   @override
-  Future<CurrentWeatherResponse> getCurrentWeather(double lat, double lon) async {
-    final response = await _apiClient.get('/weather', headers: {
-      'params': {
-        'lat': lat.toString(),
-        'lon': lon.toString(),
+  Future<CurrentWeatherResponse> getCurrentWeather(String cityName, String countryCode) async {
+    final uri = Uri(
+      path: 'weather',
+      queryParameters: {
+        'q': '$cityName,$countryCode',
         'appid': _apiKey,
-      }.toString(),
-    });
-
+      }
+    );
+    
+    final response = await _apiClient.get(uri.toString());
     return CurrentWeatherResponse.fromJson(response);
   }
 
   @override
-  Future<ForecastResponse> getWeatherForecast(double lat, double lon) async {
-    final response = await _apiClient.get('/forecast', headers: {
-      'params': {
-        'lat': lat.toString(),
-        'lon': lon.toString(),
+  Future<ForecastResponse> getWeatherForecast(String cityName, String countryCode) async {
+    final uri = Uri(
+      path: 'forecast',
+      queryParameters: {
+        'q': '$cityName,$countryCode',
         'appid': _apiKey,
-      }.toString(),
-    });
+      }
+    );
 
+    final response = await _apiClient.get(uri.toString());
     return ForecastResponse.fromJson(response);
   }
 }

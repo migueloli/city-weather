@@ -11,18 +11,18 @@ class WeatherRepositoryImpl implements WeatherRepository {
   }) : _dataSource = dataSource;
 
   @override
-  Future<CurrentWeatherResponse> getCurrentWeather(double lat, double lon) async {
+  Future<CurrentWeatherResponse> getCurrentWeather(String cityName, String countryCode) async {
     try {
-      return await _dataSource.getCurrentWeather(lat, lon);
+      return await _dataSource.getCurrentWeather(cityName, countryCode);
     } catch (e) {
       rethrow; // You might want to transform this into a domain-specific error
     }
   }
 
   @override
-  Future<ForecastResponse> getWeatherForecast(double lat, double lon) async {
+  Future<ForecastResponse> getWeatherForecast(String cityName, String countryCode) async {
     try {
-      return await _dataSource.getWeatherForecast(lat, lon);
+      return await _dataSource.getWeatherForecast(cityName, countryCode);
     } catch (e) {
       rethrow; // You might want to transform this into a domain-specific error
     }

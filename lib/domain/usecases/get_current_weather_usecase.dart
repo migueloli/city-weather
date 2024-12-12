@@ -12,8 +12,8 @@ class GetCurrentWeatherUseCase
   @override
   Future<CurrentWeatherResponse> call(LocationParams params) {
     return _repository.getCurrentWeather(
-      params.latitude,
-      params.longitude,
+      params.cityName,
+      params.countryCode,
     );
   }
 } 
