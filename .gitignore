@@ -1,0 +1,66 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+.env
+
+# IntelliJ/Android Studio related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VSCode related
+.vscode/
+.cursor/
+
+# Cursor AI cache files
+.cursor-cache/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Generated localization files
+intl_generated/
+
+# FVM Version Cache
+.fvm/
+.fvm/flutter_sdk
+
+# Obfuscation and symbolication related
+app.*.symbols
+app.*.map.json
+
+# iOS related
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Flutter/*.xcodeproj/project.xcworkspace/
+ios/Flutter/*.xcodeproj/xcuserdata/
+ios/Flutter/Generated.xcconfig
+
+# Android related
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+android/local.properties
+
+# Firebase related
+firebase_app_id_file.json
+*.firebase/
