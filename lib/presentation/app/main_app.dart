@@ -1,4 +1,4 @@
-import 'package:city_weather/presentation/router/go_router.dart';
+import 'package:city_weather/presentation/router/routes.dart';
 import 'package:flutter/material.dart';
 
 class MainApp extends StatelessWidget {

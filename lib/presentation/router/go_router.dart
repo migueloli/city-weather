@@ -1,8 +1,4 @@
-import 'package:city_weather/presentation/details/details_page.dart';
-import 'package:city_weather/presentation/error/error_page.dart';
-import 'package:city_weather/presentation/home/home_page.dart';
-import 'package:city_weather/presentation/router/routes.dart';
-import 'package:go_router/go_router.dart';
+part of 'routes.dart';
 
 GoRouter goRouter() {
   return GoRouter(
@@ -13,8 +9,15 @@ GoRouter goRouter() {
         builder: (context, state) => const HomePage(),
       ),
       GoRoute(
-        path: Routes.details,
-        builder: (context, state) => const DetailsPage(),
+        path: Routes._details,
+        builder: (context, state) => DetailsPage(
+          latitude:
+              double.tryParse(state.uri.queryParameters['latitude'] ?? '0') ??
+                  0,
+          longitude:
+              double.tryParse(state.uri.queryParameters['longitude'] ?? '0') ??
+                  0,
+        ),
       ),
     ],
   );
