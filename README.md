@@ -7,9 +7,8 @@ A Flutter application that provides real-time weather updates and forecasts for 
 ## **Features**
 - Fetch current weather conditions for cities.
 - View detailed weather forecasts.
-- Offline support with cached data for previously fetched cities.
-- Modern state management using **BLoC**.
-- Follows **Clean Architecture** principles for maintainability and scalability.
+- State management using **BLoC**.
+- **Clean Architecture** principles for maintainability and scalability.
 
 ---
 
