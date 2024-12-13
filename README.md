@@ -1,9 +1,5 @@
 # **City Weather**
 
-A Flutter application that provides real-time weather updates and forecasts for cities around the world, using the OpenWeatherMap API.
-
----
-
 ## **Features**
 - Fetch current weather conditions for cities.
 - View detailed weather forecasts.
