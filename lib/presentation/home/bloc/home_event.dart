@@ -10,3 +10,12 @@ final class FetchCitiesEvent extends HomeEvent {
   @override
   List<Object> get props => [];
 }
+
+class SearchCitiesEvent extends HomeEvent {
+  const SearchCitiesEvent(this.query);
+
+  final String query;
+
+  @override
+  List<Object?> get props => [query];
+}

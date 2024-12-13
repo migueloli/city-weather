@@ -18,13 +18,15 @@ final class HomeLoading extends HomeState {
   List<Object> get props => [];
 }
 
-final class HomeLoaded extends HomeState {
-  const HomeLoaded({required this.cities});
+class HomeLoaded extends HomeState {
+  const HomeLoaded({required this.cities, List<City>? filteredCities})
+      : filteredCities = filteredCities ?? cities;
 
   final List<City> cities;
+  final List<City> filteredCities;
 
   @override
-  List<Object> get props => [cities];
+  List<Object> get props => [cities, filteredCities];
 }
 
 final class HomeError extends HomeState {

@@ -12,6 +12,7 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc(this.getCitiesUseCase) : super(HomeInitial()) {
     on<FetchCitiesEvent>(_onFetchCities);
+    on<SearchCitiesEvent>(_onSearchCities);
     add(const FetchCitiesEvent());
   }
 
@@ -26,6 +27,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(HomeError(message: e.message));
     } catch (e) {
       emit(HomeError(message: 'Something went wrong. Please try again later.'));
+    }
+  }
+
+  void _onSearchCities(SearchCitiesEvent event, Emitter<HomeState> emit) {
+    if (state is HomeLoaded) {
+      final currentState = state as HomeLoaded;
+      final filteredCities = currentState.cities.where((city) {
+        return city.cityName.toLowerCase().contains(event.query.toLowerCase());
+      }).toList();
+      emit(
+        HomeLoaded(cities: currentState.cities, filteredCities: filteredCities),
+      );
     }
   }
 }
