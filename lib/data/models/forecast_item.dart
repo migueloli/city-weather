@@ -1,9 +1,9 @@
-import 'package:city_weather/data/model/clouds.dart';
-import 'package:city_weather/data/model/main_weather.dart';
-import 'package:city_weather/data/model/rain.dart';
-import 'package:city_weather/data/model/system.dart';
-import 'package:city_weather/data/model/weather.dart';
-import 'package:city_weather/data/model/wind.dart';
+import 'package:city_weather/data/models/clouds.dart';
+import 'package:city_weather/data/models/main_weather.dart';
+import 'package:city_weather/data/models/rain.dart';
+import 'package:city_weather/data/models/system.dart';
+import 'package:city_weather/data/models/weather.dart';
+import 'package:city_weather/data/models/wind.dart';
 
 class ForecastItem {
   final int dt;

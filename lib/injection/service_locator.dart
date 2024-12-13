@@ -44,7 +44,7 @@ void setupServiceLocator() {
   );
   getIt.registerLazySingleton<CityRepository>(
     () => CityRepositoryImpl(
-      memoryDataSource: getIt(),
+      dataSource: getIt(),
     ),
   );
 

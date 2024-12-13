@@ -1,30 +1,39 @@
 import 'package:city_weather/data/datasources/weather_data_source.dart';
-import 'package:city_weather/data/model/current_weather_response.dart';
-import 'package:city_weather/data/model/forecast_response.dart';
+import 'package:city_weather/domain/entities/weather.dart';
+import 'package:city_weather/domain/entities/forecast.dart';
+import 'package:city_weather/domain/entities/city.dart';
 import 'package:city_weather/domain/repositories/weather_repository.dart';
+import 'package:city_weather/data/extensions/weather_extension.dart';
 
 class WeatherRepositoryImpl implements WeatherRepository {
   final WeatherDataSource _dataSource;
 
-  WeatherRepositoryImpl({
-    required WeatherDataSource dataSource,
-  }) : _dataSource = dataSource;
+  WeatherRepositoryImpl({required WeatherDataSource dataSource})
+      : _dataSource = dataSource;
 
   @override
-  Future<CurrentWeatherResponse> getCurrentWeather(String cityName, String countryCode) async {
+  Future<Weather> getCurrentWeather(City city) async {
     try {
-      return await _dataSource.getCurrentWeather(cityName, countryCode);
+      final response = await _dataSource.getCurrentWeather(
+        city.cityName,
+        city.countryCode,
+      );
+      return response.toDomain();
     } catch (e) {
-      rethrow; // You might want to transform this into a domain-specific error
+      rethrow;
     }
   }
 
   @override
-  Future<ForecastResponse> getWeatherForecast(String cityName, String countryCode) async {
+  Future<Forecast> getWeatherForecast(City city) async {
     try {
-      return await _dataSource.getWeatherForecast(cityName, countryCode);
+      final response = await _dataSource.getWeatherForecast(
+        city.cityName,
+        city.countryCode,
+      );
+      return response.toDomain();
     } catch (e) {
-      rethrow; // You might want to transform this into a domain-specific error
+      rethrow;
     }
   }
 } 

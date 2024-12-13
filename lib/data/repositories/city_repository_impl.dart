@@ -1,16 +1,18 @@
-import 'package:city_weather/data/datasources/city_memory_data_source.dart';
+import 'package:city_weather/data/datasources/city_data_source.dart';
+import 'package:city_weather/data/extensions/city_extension.dart';
 import 'package:city_weather/domain/entities/city.dart';
 import 'package:city_weather/domain/repositories/city_repository.dart';
 
 class CityRepositoryImpl implements CityRepository {
-  final CityMemoryDataSource _memoryDataSource;
+  final CityDataSource _dataSource;
 
   CityRepositoryImpl({
-    required CityMemoryDataSource memoryDataSource,
-  }) : _memoryDataSource = memoryDataSource;
+    required CityDataSource dataSource,
+  }) : _dataSource = dataSource;
 
   @override
-  Future<List<City>> getCities() {
-    return Future.value(_memoryDataSource.getCities());
+  Future<List<City>> getCities() async {
+    final cityModels = await _dataSource.getCities();
+    return cityModels.map((model) => model.toDomain()).toList();
   }
 } 

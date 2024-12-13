@@ -1,6 +1,6 @@
 import 'package:city_weather/data/datasources/weather_data_source.dart';
-import 'package:city_weather/data/model/current_weather_response.dart';
-import 'package:city_weather/data/model/forecast_response.dart';
+import 'package:city_weather/data/models/current_weather_response.dart';
+import 'package:city_weather/data/models/forecast_response.dart';
 import 'package:city_weather/core/network/api_client.dart';
 
 class OpenWeatherDataSource implements WeatherDataSource {

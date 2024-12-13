@@ -1,6 +1,6 @@
-import 'package:city_weather/data/model/coordinates.dart';
+import 'package:city_weather/data/models/coordinates.dart';
 
-class City {
+class CityWeather {
   final int id;
   final String name;
   final Coordinates coord;
@@ -10,7 +10,7 @@ class City {
   final int sunrise;
   final int sunset;
 
-  City({
+  CityWeather({
     required this.id,
     required this.name,
     required this.coord,
@@ -21,8 +21,8 @@ class City {
     required this.sunset,
   });
 
-  factory City.fromJson(Map<String, dynamic> json) {
-    return City(
+  factory CityWeather.fromJson(Map<String, dynamic> json) {
+    return CityWeather(
       id: json['id'] ?? 0,
       name: json['name'] ?? '',
       coord: Coordinates.fromJson(json['coord']),

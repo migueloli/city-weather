@@ -1,7 +1,8 @@
-import 'package:city_weather/data/model/current_weather_response.dart';
-import 'package:city_weather/data/model/forecast_response.dart';
+import 'package:city_weather/domain/entities/weather.dart';
+import 'package:city_weather/domain/entities/forecast.dart';
+import 'package:city_weather/domain/entities/city.dart';
 
 abstract class WeatherRepository {
-  Future<CurrentWeatherResponse> getCurrentWeather(String cityName, String countryCode);
-  Future<ForecastResponse> getWeatherForecast(String cityName, String countryCode);
+  Future<Weather> getCurrentWeather(City city);
+  Future<Forecast> getWeatherForecast(City city);
 } 

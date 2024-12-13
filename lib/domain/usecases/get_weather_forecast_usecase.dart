@@ -1,19 +1,15 @@
-import 'package:city_weather/data/model/forecast_response.dart';
+import 'package:city_weather/domain/entities/forecast.dart';
+import 'package:city_weather/domain/entities/city.dart';
 import 'package:city_weather/domain/repositories/weather_repository.dart';
-import 'package:city_weather/domain/usecases/params/location_params.dart';
 import 'package:city_weather/domain/usecases/usecase.dart';
 
-class GetWeatherForecastUseCase
-    implements UseCase<ForecastResponse, LocationParams> {
+class GetWeatherForecastUseCase implements UseCase<Forecast, City> {
   final WeatherRepository _repository;
 
   GetWeatherForecastUseCase(this._repository);
 
   @override
-  Future<ForecastResponse> call(LocationParams params) {
-    return _repository.getWeatherForecast(
-      params.cityName,
-      params.countryCode,
-    );
+  Future<Forecast> call(City params) {
+    return _repository.getWeatherForecast(params);
   }
 } 

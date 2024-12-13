@@ -1,12 +1,12 @@
-import 'package:city_weather/data/model/city.dart';
-import 'package:city_weather/data/model/forecast_item.dart';
+import 'package:city_weather/data/models/city_weather.dart';
+import 'package:city_weather/data/models/forecast_item.dart';
 
 class ForecastResponse {
   final String cod;
   final int message;
   final int cnt;
   final List<ForecastItem> list;
-  final City city;
+  final CityWeather city;
 
   ForecastResponse({
     required this.cod,
@@ -24,7 +24,7 @@ class ForecastResponse {
       list: (json['list'] as List)
           .map((item) => ForecastItem.fromJson(item))
           .toList(),
-      city: City.fromJson(json['city']),
+      city: CityWeather.fromJson(json['city']),
     );
   }
 
