@@ -23,6 +23,7 @@ class CityWeatherBloc extends Bloc<CityWeatherEvent, CityWeatherState> {
     FetchCityWeatherEvent event,
     emit,
   ) async {
+    emit(CityWeatherLoading());
     try {
       final params = LocationParams(
         latitude: event.city.latitude,
