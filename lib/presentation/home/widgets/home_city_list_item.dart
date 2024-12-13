@@ -43,7 +43,7 @@ class HomeCityListItem extends StatelessWidget {
     );
   }
 
-  Future<void> _onTap(BuildContext context) => context.pushNamed(
+  Future<void> _onTap(BuildContext context) => context.push(
         Routes.details(
           latitude: city.latitude,
           longitude: city.longitude,

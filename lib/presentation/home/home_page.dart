@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
       create: (context) => HomeBloc(getIt()),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('City Weather'),
+          title: Text('Cities'),
         ),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
