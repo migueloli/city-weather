@@ -4,6 +4,7 @@ class Weather {
     required this.feelsLike,
     required this.humidity,
     required this.windSpeed,
+    required this.name,
     required this.description,
     required this.icon,
     required this.timestamp,
@@ -13,6 +14,7 @@ class Weather {
   final double feelsLike;
   final int humidity;
   final double windSpeed;
+  final String name;
   final String description;
   final String icon;
   final DateTime timestamp;

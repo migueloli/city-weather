@@ -1,9 +1,9 @@
 class LocationParams {
   const LocationParams({
-    required this.cityName,
-    required this.countryCode,
+    required this.latitude,
+    required this.longitude,
   });
 
-  final String cityName;
-  final String countryCode;
+  final double latitude;
+  final double longitude;
 }

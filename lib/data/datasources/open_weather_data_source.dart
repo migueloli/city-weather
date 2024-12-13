@@ -24,6 +24,7 @@ class OpenWeatherDataSource implements WeatherDataSource {
         'lat': latitude.toString(),
         'lon': longitude.toString(),
         'appid': _apiKey,
+        'units': 'metric',
       },
     );
 
@@ -42,6 +43,7 @@ class OpenWeatherDataSource implements WeatherDataSource {
         'lat': latitude.toString(),
         'lon': longitude.toString(),
         'appid': _apiKey,
+        'units': 'metric',
       },
     );
 

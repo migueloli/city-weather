@@ -1,5 +1,5 @@
 import 'package:city_weather/core/error/network_exception.dart';
-import 'package:city_weather/core/network/network_info.dart';
+import 'package:city_weather/core/utils/network_info/network_info.dart';
 import 'package:city_weather/data/datasources/weather_data_source.dart';
 import 'package:city_weather/data/extensions/weather_extension.dart';
 import 'package:city_weather/domain/entities/forecast.dart';
