@@ -36,7 +36,7 @@ API_KEY=your_openweathermap_api_key
 BASE_URL=https://api.openweathermap.org/data/2.5/
 ```
   
-- API_KEY: Obtain from OpenWeatherMap.
+- API_KEY: Obtain from [OpenWeatherMap](https://openweathermap.org/).
 - BASE_URL: The API base URL (already provided).
 
 3.	Ensure .env is not committed to version control. This is already handled by the .gitignore.
