@@ -1,10 +1,4 @@
 class CityModel {
-  final String cityName;
-  final String countryName;
-  final String countryCode;
-  final double latitude;
-  final double longitude;
-
   const CityModel({
     required this.cityName,
     required this.countryName,
@@ -23,11 +17,17 @@ class CityModel {
     );
   }
 
+  final String cityName;
+  final String countryName;
+  final String countryCode;
+  final double latitude;
+  final double longitude;
+
   Map<String, dynamic> toJson() => {
-    'cityName': cityName,
-    'countryName': countryName, 
-    'countryCode': countryCode,
-    'latitude': latitude,
-    'longitude': longitude,
-  };
-} 
+        'cityName': cityName,
+        'countryName': countryName,
+        'countryCode': countryCode,
+        'latitude': latitude,
+        'longitude': longitude,
+      };
+}

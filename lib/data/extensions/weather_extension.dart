@@ -1,10 +1,10 @@
 import 'package:city_weather/data/models/city_weather.dart';
 import 'package:city_weather/data/models/current_weather_response.dart';
-import 'package:city_weather/data/models/forecast_response.dart';
 import 'package:city_weather/data/models/forecast_item.dart';
+import 'package:city_weather/data/models/forecast_response.dart';
 import 'package:city_weather/domain/entities/city.dart';
-import 'package:city_weather/domain/entities/weather.dart';
 import 'package:city_weather/domain/entities/forecast.dart';
+import 'package:city_weather/domain/entities/weather.dart';
 
 extension CurrentWeatherResponseExtension on CurrentWeatherResponse {
   Weather toDomain() => Weather(

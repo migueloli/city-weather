@@ -1,9 +1,5 @@
 class Wind {
-  final double speed;
-  final int deg;
-  final double gust;
-
-  Wind({
+  const Wind({
     required this.speed,
     required this.deg,
     required this.gust,
@@ -17,9 +13,13 @@ class Wind {
     );
   }
 
+  final double speed;
+  final int deg;
+  final double gust;
+
   Map<String, dynamic> toJson() => {
-    'speed': speed,
-    'deg': deg,
-    'gust': gust,
-  };
-} 
+        'speed': speed,
+        'deg': deg,
+        'gust': gust,
+      };
+}

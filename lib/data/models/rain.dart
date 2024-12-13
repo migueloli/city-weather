@@ -1,8 +1,5 @@
 class Rain {
-  final double? oneHour;
-  final double? threeHour;
-
-  Rain({this.oneHour, this.threeHour});
+  const Rain({this.oneHour, this.threeHour});
 
   factory Rain.fromJson(Map<String, dynamic> json) {
     return Rain(
@@ -11,8 +8,11 @@ class Rain {
     );
   }
 
+  final double? oneHour;
+  final double? threeHour;
+
   Map<String, dynamic> toJson() => {
-    if (oneHour != null) '1h': oneHour,
-    if (threeHour != null) '3h': threeHour,
-  };
-} 
+        if (oneHour != null) '1h': oneHour,
+        if (threeHour != null) '3h': threeHour,
+      };
+}

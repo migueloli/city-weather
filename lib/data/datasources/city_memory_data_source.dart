@@ -2,6 +2,8 @@ import 'package:city_weather/data/datasources/city_data_source.dart';
 import 'package:city_weather/data/models/city_model.dart';
 
 class CityMemoryDataSource implements CityDataSource {
+  const CityMemoryDataSource();
+
   final List<CityModel> _cities = const [
     CityModel(
       cityName: 'Silverstone',
@@ -19,7 +21,7 @@ class CityMemoryDataSource implements CityDataSource {
     ),
     CityModel(
       cityName: 'Melbourne',
-      countryName: 'Australia', 
+      countryName: 'Australia',
       countryCode: 'AU',
       latitude: -37.8136,
       longitude: 144.9631,
@@ -35,4 +37,4 @@ class CityMemoryDataSource implements CityDataSource {
 
   @override
   Future<List<CityModel>> getCities() => Future.value(_cities);
-} 
+}

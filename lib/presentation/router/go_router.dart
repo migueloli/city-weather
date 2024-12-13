@@ -1,7 +1,7 @@
-import 'package:city_weather/presentation/router/routes.dart';
+import 'package:city_weather/presentation/details/details_page.dart';
 import 'package:city_weather/presentation/error/error_page.dart';
 import 'package:city_weather/presentation/home/home_page.dart';
-import 'package:city_weather/presentation/details/details_page.dart';
+import 'package:city_weather/presentation/router/routes.dart';
 import 'package:go_router/go_router.dart';
 
 GoRouter goRouter() {

@@ -1,8 +1,5 @@
 class Coordinates {
-  final double lon;
-  final double lat;
-
-  Coordinates({required this.lon, required this.lat});
+  const Coordinates({required this.lon, required this.lat});
 
   factory Coordinates.fromJson(Map<String, dynamic> json) {
     return Coordinates(
@@ -11,8 +8,11 @@ class Coordinates {
     );
   }
 
+  final double lon;
+  final double lat;
+
   Map<String, dynamic> toJson() => {
-    'lon': lon,
-    'lat': lat,
-  };
-} 
+        'lon': lon,
+        'lat': lat,
+      };
+}

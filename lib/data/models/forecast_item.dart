@@ -6,18 +6,7 @@ import 'package:city_weather/data/models/weather.dart';
 import 'package:city_weather/data/models/wind.dart';
 
 class ForecastItem {
-  final int dt;
-  final MainWeather main;
-  final List<Weather> weather;
-  final Clouds clouds;
-  final Wind wind;
-  final int visibility;
-  final double pop;
-  final Rain? rain;
-  final System sys;
-  final String dtTxt;
-
-  ForecastItem({
+  const ForecastItem({
     required this.dt,
     required this.main,
     required this.weather,
@@ -34,9 +23,8 @@ class ForecastItem {
     return ForecastItem(
       dt: json['dt'] ?? 0,
       main: MainWeather.fromJson(json['main']),
-      weather: (json['weather'] as List)
-          .map((w) => Weather.fromJson(w))
-          .toList(),
+      weather:
+          (json['weather'] as List).map((w) => Weather.fromJson(w)).toList(),
       clouds: Clouds.fromJson(json['clouds']),
       wind: Wind.fromJson(json['wind']),
       visibility: json['visibility'] ?? 0,
@@ -47,16 +35,27 @@ class ForecastItem {
     );
   }
 
+  final int dt;
+  final MainWeather main;
+  final List<Weather> weather;
+  final Clouds clouds;
+  final Wind wind;
+  final int visibility;
+  final double pop;
+  final Rain? rain;
+  final System sys;
+  final String dtTxt;
+
   Map<String, dynamic> toJson() => {
-    'dt': dt,
-    'main': main.toJson(),
-    'weather': weather.map((w) => w.toJson()).toList(),
-    'clouds': clouds.toJson(),
-    'wind': wind.toJson(),
-    'visibility': visibility,
-    'pop': pop,
-    if (rain != null) 'rain': rain!.toJson(),
-    'sys': sys.toJson(),
-    'dt_txt': dtTxt,
-  };
-} 
+        'dt': dt,
+        'main': main.toJson(),
+        'weather': weather.map((w) => w.toJson()).toList(),
+        'clouds': clouds.toJson(),
+        'wind': wind.toJson(),
+        'visibility': visibility,
+        'pop': pop,
+        if (rain != null) 'rain': rain!.toJson(),
+        'sys': sys.toJson(),
+        'dt_txt': dtTxt,
+      };
+}

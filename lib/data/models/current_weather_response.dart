@@ -7,22 +7,7 @@ import 'package:city_weather/data/models/weather.dart';
 import 'package:city_weather/data/models/wind.dart';
 
 class CurrentWeatherResponse {
-  final Coordinates coord;
-  final List<Weather> weather;
-  final String base;
-  final MainWeather main;
-  final int visibility;
-  final Wind wind;
-  final Rain? rain;
-  final Clouds clouds;
-  final int dt;
-  final System sys;
-  final int timezone;
-  final int id;
-  final String name;
-  final int cod;
-
-  CurrentWeatherResponse({
+  const CurrentWeatherResponse({
     required this.coord,
     required this.weather,
     required this.base,
@@ -42,9 +27,8 @@ class CurrentWeatherResponse {
   factory CurrentWeatherResponse.fromJson(Map<String, dynamic> json) {
     return CurrentWeatherResponse(
       coord: Coordinates.fromJson(json['coord']),
-      weather: (json['weather'] as List)
-          .map((w) => Weather.fromJson(w))
-          .toList(),
+      weather:
+          (json['weather'] as List).map((w) => Weather.fromJson(w)).toList(),
       base: json['base'] ?? '',
       main: MainWeather.fromJson(json['main']),
       visibility: json['visibility'] ?? 0,
@@ -60,20 +44,35 @@ class CurrentWeatherResponse {
     );
   }
 
+  final Coordinates coord;
+  final List<Weather> weather;
+  final String base;
+  final MainWeather main;
+  final int visibility;
+  final Wind wind;
+  final Rain? rain;
+  final Clouds clouds;
+  final int dt;
+  final System sys;
+  final int timezone;
+  final int id;
+  final String name;
+  final int cod;
+
   Map<String, dynamic> toJson() => {
-    'coord': coord.toJson(),
-    'weather': weather.map((w) => w.toJson()).toList(),
-    'base': base,
-    'main': main.toJson(),
-    'visibility': visibility,
-    'wind': wind.toJson(),
-    if (rain != null) 'rain': rain!.toJson(),
-    'clouds': clouds.toJson(),
-    'dt': dt,
-    'sys': sys.toJson(),
-    'timezone': timezone,
-    'id': id,
-    'name': name,
-    'cod': cod,
-  };
-} 
+        'coord': coord.toJson(),
+        'weather': weather.map((w) => w.toJson()).toList(),
+        'base': base,
+        'main': main.toJson(),
+        'visibility': visibility,
+        'wind': wind.toJson(),
+        if (rain != null) 'rain': rain!.toJson(),
+        'clouds': clouds.toJson(),
+        'dt': dt,
+        'sys': sys.toJson(),
+        'timezone': timezone,
+        'id': id,
+        'name': name,
+        'cod': cod,
+      };
+}

@@ -1,8 +1,8 @@
 class NetworkException implements Exception {
-  final String message;
+  const NetworkException({this.message = 'No internet connection available'});
 
-  NetworkException({this.message = 'No internet connection available'});
+  final String message;
 
   @override
   String toString() => message;
-} 
+}

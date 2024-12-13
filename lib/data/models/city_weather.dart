@@ -1,16 +1,7 @@
 import 'package:city_weather/data/models/coordinates.dart';
 
 class CityWeather {
-  final int id;
-  final String name;
-  final Coordinates coord;
-  final String country;
-  final int population;
-  final int timezone;
-  final int sunrise;
-  final int sunset;
-
-  CityWeather({
+  const CityWeather({
     required this.id,
     required this.name,
     required this.coord,
@@ -34,14 +25,23 @@ class CityWeather {
     );
   }
 
+  final int id;
+  final String name;
+  final Coordinates coord;
+  final String country;
+  final int population;
+  final int timezone;
+  final int sunrise;
+  final int sunset;
+
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'coord': coord.toJson(),
-    'country': country,
-    'population': population,
-    'timezone': timezone,
-    'sunrise': sunrise,
-    'sunset': sunset,
-  };
-} 
+        'id': id,
+        'name': name,
+        'coord': coord.toJson(),
+        'country': country,
+        'population': population,
+        'timezone': timezone,
+        'sunrise': sunrise,
+        'sunset': sunset,
+      };
+}

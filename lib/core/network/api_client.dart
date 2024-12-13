@@ -3,25 +3,30 @@ import 'package:city_weather/core/error/api_exception.dart';
 import 'package:http/http.dart' as http;
 
 class ApiClient {
-  final String _baseUrl;
-  final Map<String, String> _defaultHeaders;
-
-  ApiClient({
+  const ApiClient({
     required String baseUrl,
     Map<String, String> defaultHeaders = const {},
-  }) : _defaultHeaders = defaultHeaders, _baseUrl = baseUrl;
+  })  : _defaultHeaders = defaultHeaders,
+        _baseUrl = baseUrl;
+
+  final String _baseUrl;
+  final Map<String, String> _defaultHeaders;
 
   // GET Request
   Future<dynamic> get(String endpoint, {Map<String, String>? headers}) async {
     final uri = Uri.parse('$_baseUrl$endpoint');
-    final response = await http.get(uri, headers: {..._defaultHeaders, ...?headers});
+    final response =
+        await http.get(uri, headers: {..._defaultHeaders, ...?headers});
 
     return _processResponse(response);
   }
 
   // POST Request
-  Future<dynamic> post(String endpoint,
-      {Map<String, String>? headers, dynamic body}) async {
+  Future<dynamic> post(
+    String endpoint, {
+    Map<String, String>? headers,
+    dynamic body,
+  }) async {
     final uri = Uri.parse('$_baseUrl$endpoint');
     final response = await http.post(
       uri,
@@ -33,8 +38,11 @@ class ApiClient {
   }
 
   // PUT Request
-  Future<dynamic> put(String endpoint,
-      {Map<String, String>? headers, dynamic body}) async {
+  Future<dynamic> put(
+    String endpoint, {
+    Map<String, String>? headers,
+    dynamic body,
+  }) async {
     final uri = Uri.parse('$_baseUrl$endpoint');
     final response = await http.put(
       uri,
@@ -46,9 +54,29 @@ class ApiClient {
   }
 
   // DELETE Request
-  Future<dynamic> delete(String endpoint, {Map<String, String>? headers}) async {
+  Future<dynamic> delete(
+    String endpoint, {
+    Map<String, String>? headers,
+  }) async {
     final uri = Uri.parse('$_baseUrl$endpoint');
-    final response = await http.delete(uri, headers: {..._defaultHeaders, ...?headers});
+    final response =
+        await http.delete(uri, headers: {..._defaultHeaders, ...?headers});
+
+    return _processResponse(response);
+  }
+
+  // PATCH Request
+  Future<dynamic> patch(
+    String endpoint, {
+    Map<String, String>? headers,
+    dynamic body,
+  }) async {
+    final uri = Uri.parse('$_baseUrl$endpoint');
+    final response = await http.patch(
+      uri,
+      headers: {..._defaultHeaders, ...?headers},
+      body: body is Map ? jsonEncode(body) : body,
+    );
 
     return _processResponse(response);
   }

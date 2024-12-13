@@ -1,15 +1,5 @@
 class MainWeather {
-  final double temp;
-  final double feelsLike;
-  final double tempMin;
-  final double tempMax;
-  final int pressure;
-  final int humidity;
-  final int seaLevel;
-  final int grndLevel;
-  final double? tempKf;
-
-  MainWeather({
+  const MainWeather({
     required this.temp,
     required this.feelsLike,
     required this.tempMin,
@@ -35,15 +25,25 @@ class MainWeather {
     );
   }
 
+  final double temp;
+  final double feelsLike;
+  final double tempMin;
+  final double tempMax;
+  final int pressure;
+  final int humidity;
+  final int seaLevel;
+  final int grndLevel;
+  final double? tempKf;
+
   Map<String, dynamic> toJson() => {
-    'temp': temp,
-    'feels_like': feelsLike,
-    'temp_min': tempMin,
-    'temp_max': tempMax,
-    'pressure': pressure,
-    'humidity': humidity,
-    'sea_level': seaLevel,
-    'grnd_level': grndLevel,
-    'temp_kf': tempKf,
-  };
-} 
+        'temp': temp,
+        'feels_like': feelsLike,
+        'temp_min': tempMin,
+        'temp_max': tempMax,
+        'pressure': pressure,
+        'humidity': humidity,
+        'sea_level': seaLevel,
+        'grnd_level': grndLevel,
+        'temp_kf': tempKf,
+      };
+}

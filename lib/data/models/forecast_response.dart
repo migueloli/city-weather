@@ -2,13 +2,7 @@ import 'package:city_weather/data/models/city_weather.dart';
 import 'package:city_weather/data/models/forecast_item.dart';
 
 class ForecastResponse {
-  final String cod;
-  final int message;
-  final int cnt;
-  final List<ForecastItem> list;
-  final CityWeather city;
-
-  ForecastResponse({
+  const ForecastResponse({
     required this.cod,
     required this.message,
     required this.cnt,
@@ -28,11 +22,17 @@ class ForecastResponse {
     );
   }
 
+  final String cod;
+  final int message;
+  final int cnt;
+  final List<ForecastItem> list;
+  final CityWeather city;
+
   Map<String, dynamic> toJson() => {
-    'cod': cod,
-    'message': message,
-    'cnt': cnt,
-    'list': list.map((item) => item.toJson()).toList(),
-    'city': city.toJson(),
-  };
-} 
+        'cod': cod,
+        'message': message,
+        'cnt': cnt,
+        'list': list.map((item) => item.toJson()).toList(),
+        'city': city.toJson(),
+      };
+}

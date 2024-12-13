@@ -3,12 +3,12 @@ import 'package:city_weather/domain/repositories/city_repository.dart';
 import 'package:city_weather/domain/usecases/usecase.dart';
 
 class GetCitiesUseCase implements UseCase<List<City>, NoParams> {
-  final CityRepository _repository;
+  const GetCitiesUseCase(this._repository);
 
-  GetCitiesUseCase(this._repository);
+  final CityRepository _repository;
 
   @override
   Future<List<City>> call(NoParams params) {
     return _repository.getCities();
   }
-} 
+}

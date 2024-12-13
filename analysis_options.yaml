@@ -2,13 +2,39 @@ include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
-    - always_declare_return_types
+    # Error prevention
     - cancel_subscriptions
     - close_sinks
+    - throw_in_finally
+    - avoid_slow_async_io
+    - do_not_use_environment
+    - discarded_futures
+    
+    # Style improvements
+    - always_use_package_imports
     - combinators_ordering
-    - comment_references
-    - invalid_case_patterns
-    - one_member_abstracts
-    - only_throw_errors
     - prefer_single_quotes
-    - await_only_futures
+    - unawaited_futures
+    - sort_constructors_first
+    - sort_pub_dependencies
+    - require_trailing_commas
+    - directives_ordering
+    - depend_on_referenced_packages
+    - eol_at_end_of_file
+    - package_api_docs
+    - secure_pubspec_urls
+    
+    # Performance & best practices
+    - avoid_unnecessary_containers
+    - sized_box_for_whitespace
+    - use_full_hex_values_for_flutter_colors
+    - avoid_type_to_string
+    - prefer_final_locals
+    - prefer_final_fields
+    - unnecessary_lambdas
+    - use_setters_to_change_properties
+    - avoid_multiple_declarations_per_line
+    - avoid_final_parameters
+    
+    # Testing
+    - test_types_in_equals

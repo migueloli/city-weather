@@ -1,12 +1,5 @@
 class System {
-  final int? type;
-  final int? id;
-  final String country;
-  final int? sunrise;
-  final int? sunset;
-  final String? pod;
-
-  System({
+  const System({
     this.type,
     this.id,
     required this.country,
@@ -26,12 +19,19 @@ class System {
     );
   }
 
+  final int? type;
+  final int? id;
+  final String country;
+  final int? sunrise;
+  final int? sunset;
+  final String? pod;
+
   Map<String, dynamic> toJson() => {
-    if (type != null) 'type': type,
-    if (id != null) 'id': id,
-    'country': country,
-    if (sunrise != null) 'sunrise': sunrise,
-    if (sunset != null) 'sunset': sunset,
-    if (pod != null) 'pod': pod,
-  };
-} 
+        if (type != null) 'type': type,
+        if (id != null) 'id': id,
+        'country': country,
+        if (sunrise != null) 'sunrise': sunrise,
+        if (sunset != null) 'sunset': sunset,
+        if (pod != null) 'pod': pod,
+      };
+}

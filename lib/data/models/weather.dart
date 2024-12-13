@@ -1,10 +1,5 @@
 class Weather {
-  final int id;
-  final String main;
-  final String description;
-  final String icon;
-
-  Weather({
+  const Weather({
     required this.id,
     required this.main,
     required this.description,
@@ -20,10 +15,15 @@ class Weather {
     );
   }
 
+  final int id;
+  final String main;
+  final String description;
+  final String icon;
+
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'main': main,
-    'description': description,
-    'icon': icon,
-  };
-} 
+        'id': id,
+        'main': main,
+        'description': description,
+        'icon': icon,
+      };
+}
