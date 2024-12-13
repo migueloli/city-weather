@@ -5,11 +5,11 @@ abstract class WeatherDataSource {
   const WeatherDataSource();
 
   Future<CurrentWeatherResponse> getCurrentWeather(
-    String cityName,
-    String countryCode,
+    double latitude,
+    double longitude,
   );
   Future<ForecastResponse> getWeatherForecast(
-    String cityName,
-    String countryCode,
+    double latitude,
+    double longitude,
   );
 }

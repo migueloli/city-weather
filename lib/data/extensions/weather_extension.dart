@@ -53,7 +53,6 @@ extension CityWeatherExtension on CityWeather {
   City toDomain() => City(
         cityName: name,
         countryName: country,
-        countryCode: country,
         latitude: coord.lat,
         longitude: coord.lon,
       );

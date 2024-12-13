@@ -10,6 +10,6 @@ class GetWeatherForecastUseCase implements UseCase<Forecast, City> {
 
   @override
   Future<Forecast> call(City params) {
-    return _repository.getWeatherForecast(params);
+    return _repository.getWeatherForecast(params.latitude, params.longitude);
   }
 }

@@ -5,7 +5,6 @@ extension CityModelExtension on CityModel {
   City toDomain() => City(
         cityName: cityName,
         countryName: countryName,
-        countryCode: countryCode,
         latitude: latitude,
         longitude: longitude,
       );

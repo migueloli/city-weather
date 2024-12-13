@@ -1,8 +1,14 @@
-class NetworkException implements Exception {
-  const NetworkException({this.message = 'No internet connection available'});
+import 'package:city_weather/core/error/app_exception.dart';
+import 'package:city_weather/core/error/app_exception_type.dart';
 
-  final String message;
+class NetworkException implements AppException {
+  const NetworkException({
+    this.type = AppExceptionType.networkConnection,
+  });
 
   @override
-  String toString() => message;
+  final AppExceptionType type;
+
+  @override
+  String toString() => 'No internet connection available';
 }

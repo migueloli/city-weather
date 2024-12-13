@@ -2,7 +2,6 @@ import 'package:city_weather/core/error/network_exception.dart';
 import 'package:city_weather/core/network/network_info.dart';
 import 'package:city_weather/data/datasources/weather_data_source.dart';
 import 'package:city_weather/data/extensions/weather_extension.dart';
-import 'package:city_weather/domain/entities/city.dart';
 import 'package:city_weather/domain/entities/forecast.dart';
 import 'package:city_weather/domain/entities/weather.dart';
 import 'package:city_weather/domain/repositories/weather_repository.dart';
@@ -18,13 +17,13 @@ class WeatherRepositoryImpl implements WeatherRepository {
   final NetworkInfo _networkInfo;
 
   @override
-  Future<Weather> getCurrentWeather(City city) async {
+  Future<Weather> getCurrentWeather(double latitude, double longitude) async {
     if (!await _networkInfo.isConnected) throw const NetworkException();
 
     try {
       final response = await _dataSource.getCurrentWeather(
-        city.cityName,
-        city.countryCode,
+        latitude,
+        longitude,
       );
       return response.toDomain();
     } catch (e) {
@@ -33,13 +32,13 @@ class WeatherRepositoryImpl implements WeatherRepository {
   }
 
   @override
-  Future<Forecast> getWeatherForecast(City city) async {
+  Future<Forecast> getWeatherForecast(double latitude, double longitude) async {
     if (!await _networkInfo.isConnected) throw const NetworkException();
 
     try {
       final response = await _dataSource.getWeatherForecast(
-        city.cityName,
-        city.countryCode,
+        latitude,
+        longitude,
       );
       return response.toDomain();
     } catch (e) {

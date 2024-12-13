@@ -15,13 +15,14 @@ class OpenWeatherDataSource implements WeatherDataSource {
 
   @override
   Future<CurrentWeatherResponse> getCurrentWeather(
-    String cityName,
-    String countryCode,
+    double latitude,
+    double longitude,
   ) async {
     final uri = Uri(
       path: 'weather',
       queryParameters: {
-        'q': '$cityName,$countryCode',
+        'lat': latitude.toString(),
+        'lon': longitude.toString(),
         'appid': _apiKey,
       },
     );
@@ -32,13 +33,14 @@ class OpenWeatherDataSource implements WeatherDataSource {
 
   @override
   Future<ForecastResponse> getWeatherForecast(
-    String cityName,
-    String countryCode,
+    double latitude,
+    double longitude,
   ) async {
     final uri = Uri(
       path: 'forecast',
       queryParameters: {
-        'q': '$cityName,$countryCode',
+        'lat': latitude.toString(),
+        'lon': longitude.toString(),
         'appid': _apiKey,
       },
     );
