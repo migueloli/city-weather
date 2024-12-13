@@ -1,10 +1,10 @@
-import 'package:bloc/bloc.dart';
 import 'package:city_weather/core/error/app_exception.dart';
 import 'package:city_weather/core/error/app_exception_message_extension.dart';
 import 'package:city_weather/domain/entities/forecast.dart';
 import 'package:city_weather/domain/usecases/get_weather_forecast_usecase.dart';
 import 'package:city_weather/domain/usecases/params/location_params.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'details_event.dart';
 part 'details_state.dart';
